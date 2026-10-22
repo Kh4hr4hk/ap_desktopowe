@@ -1,0 +1,36 @@
+﻿<Window x:Class="ElektroBudWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElektroBudWPF"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        
+        Title="Elektro-Bud. Formularz wyszukiwania produktów" Height="600" Width="1100" Background="#FB6E8686" Foreground="White" FontFamily="Verdana">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="181*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="Header" HorizontalAlignment="Left" Margin="155,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="432" FontSize="30" FontFamily="Sitka Banner" Foreground="Black" FontWeight="Bold" Grid.ColumnSpan="2"><Run Text="Wyszukaj produkt"/><Run Language="pl-pl" Text=":"/></TextBlock>
+        <TextBox x:Name="wyszukiwarka" HorizontalAlignment="Left" Margin="307,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468" Height="36" FontSize="22" TextChanged="TextBox_TextChanged" Grid.Column="1" Foreground="White" Background="#FFA2B1BD"/>
+        <Image HorizontalAlignment="Left" Height="36" Margin="271,24,0,0" VerticalAlignment="Top" Width="42" Source="C:\Users\klarc\source\repos\ElektroBud\lupa.jpg" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="(Kod EAN lub nazwa)" Width="170" FontSize="14" FontFamily="Sitka Small" Grid.Column="1"/>
+        <Button Click="Przyjmowanie" Content="Przyjmowanie towaru" HorizontalAlignment="Left" Margin="111,477,0,0" VerticalAlignment="Top" Width="339"  Grid.ColumnSpan="2" Height="33" FontFamily="Verdana" FontSize="22" Background="#FFB0C7C7"/>
+        <Button Content="Wydawanie towaru" Click="Wydawanie" HorizontalAlignment="Left" Margin="514,477,0,0" VerticalAlignment="Top" Width="321"  Height="33" Grid.Column="1" FontSize="22" Background="#FFB0C7C7"/>
+        <DataGrid ColumnWidth="*"  Margin="111,98,70,135" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" x:Name="produktyTabela" Grid.ColumnSpan="2" Foreground="Black" Background="#FFA3B1BD">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="ID" Width="40" Binding="{Binding ID}"></DataGridTextColumn> -->
+                <!--binding pobiera wartosc z kolumny w bazie i wyswietla w komorce -->
+                <DataGridTextColumn Header="EAN" Width="130" Binding="{Binding EAN}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nazwa" Width="*" Binding="{Binding Nazwa}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kategoria" Width="*" Binding="{Binding Kategoria}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Sektor" Width="70" Binding="{Binding Sektor}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Regał" Width="70" Binding="{Binding Regal}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Półka" Width="70" Binding="{Binding Polka}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Liczba sztuk" Width="100" Binding="{Binding LiczbaSztuk}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
